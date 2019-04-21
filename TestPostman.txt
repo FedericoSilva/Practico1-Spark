@@ -1,0 +1,40 @@
+TEST POSTMAN
+
+POST
+
+pm.test("Successful GET/POST request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([200,202]);
+});
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(200);
+});
+
+pm.test(“Failed GET/POST request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([400,511]);
+});
+pm.test(“Error de request por parte del cliente“, function () {
+    pm.expect(pm.response.code).to.be.oneOf([400,452]);
+});
+pm.test(“Error en el servidor“, function () {
+    pm.expect(pm.response.code).to.be.oneOf([500,511]);
+});
+pm.test(“Atención ! Redirección”, function () {
+    pm.expect(pm.response.code).to.be.oneOf([300,308]);
+});
+
+————————————
+GET USUARIOS
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.test("Contiene el usuario 'Federico' ", function () {
+    pm.expect(pm.response.text()).to.include("Federico");
+});
+pm.test("Contiene el usuario 'Juan' ", function () {
+    pm.expect(pm.response.text()).to.include("Juan");
+});
+pm.test("Contiene el usuario 'Martín' ", function () {
+    pm.expect(pm.response.text()).to.include("Martín");
+});
+

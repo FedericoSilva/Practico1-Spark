@@ -1,0 +1,1138 @@
+{
+	"info": {
+		"_postman_id": "5ab2bfc9-19e8-4973-8804-19edcf5a22b6",
+		"name": "TestSpark",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "localhost:4567/usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "013f4734-5162-4670-bb61-2d89033c39cc",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4567/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e924d7ad-f222-4f62-a245-5e142e51ebcb",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 5,\n\t\"nombre\": Santi,\n\t\"apellido\": Silva\n}\n"
+						},
+						"url": {
+							"raw": "localhost:4567/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bcfeb2d5-9a22-4d19-8c18-3798e286b852",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 2,\n\t\"nombre\": Santino,\n\t\"apellido\": Silva\n}"
+						},
+						"url": {
+							"raw": "localhost:4567/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/usuario/3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f523d6a6-39dc-4dba-aa14-dfdbc8ae51a3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4567/usuario/3",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"usuario",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Proyecto",
+			"item": [
+				{
+					"name": "localhost:4567/proyecto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "149aad3b-e7e9-4cda-8f42-39add3818524",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":3,\n\t\"titulo\": \"El proyecto\",\n\t\"propietario\":{\n            \"id\": 2,\n            \"nombre\": \"Federico\",\n            \"apellido\": \"Silva\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "localhost:4567/proyecto",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"proyecto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/proyecto/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fee706b0-318d-43f0-b4ea-8c6e51bcf6fe",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4567/proyecto/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"proyecto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/proyecto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "463159f8-1ffe-4954-8275-ebcf9eb70f70",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4567/proyecto",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"proyecto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/proyecto/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "463159f8-1ffe-4954-8275-ebcf9eb70f70",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4567/proyecto/1",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"proyecto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Incidente",
+			"item": [
+				{
+					"name": "localhost:4567/proyecto/2/incidente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "110802ef-49ac-4022-8219-a7c8e825ee67",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 4,\n            \"descripcion\": \"Falla de Api\",\n            \"reportador\": {\n                \"id\": 3,\n                \"nombre\": \"Matías\",\n                \"apellido\": \"Brond\"\n            },\n            \"responsable\": {\n                \"id\": 1,\n                \"nombre\": \"Juan\",\n                \"apellido\": \"Filardo\"\n            },\n            \"clasificacion\": \"CRITICO\"\n}\n "
+						},
+						"url": {
+							"raw": "localhost:4567/proyecto/2/incidente",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"proyecto",
+								"2",
+								"incidente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/proyecto/1/incidente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b188da69-6a73-42a3-ae3a-5856b1ad7d22",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4567/proyecto/1/incidente",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"proyecto",
+								"1",
+								"incidente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/proyecto/2/incidente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8581a6ee-8c91-480c-9961-af5354573656",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n            \"id\": 2,\n            \"descripcion\": \"Falla continua\",\n            \"reportador\": {\n                \"id\": 3,\n                \"nombre\": \"Matías\",\n                \"apellido\": \"Brond\"\n            },\n            \"responsable\": {\n                \"id\": 2,\n                \"nombre\": \"Federico\",\n                \"apellido\": \"Silva\"\n            },\n            \"fechaCreacion\": \"Apr 14, 2019 9:21:37 PM\",\n            \"clasificacion\": \"MENOR\",\n            \"estado\": \"RESUELTO\"\n        }"
+						},
+						"url": {
+							"raw": "localhost:4567/proyecto/2/incidente",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"proyecto",
+								"2",
+								"incidente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Otros",
+			"item": [
+				{
+					"name": "localhost:4567/incidente/reportador/3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "974e2415-a3c6-4ff2-844d-58378745444d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4567/incidente/reportador/3",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"incidente",
+								"reportador",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/incidente/responsable/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "52ac00fc-b648-461a-93c1-46cb842001a6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4567/incidente/responsable/2",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"incidente",
+								"responsable",
+								"2"
+							]
+						},
+						"description": "Retorna los incidentes de un responsable\n"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/incidente/resueltos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c44181e7-57cd-47db-914b-682d63760ea4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4567/incidente/resueltos",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"incidente",
+								"resueltos"
+							]
+						},
+						"description": "Retorna los incidentes en estado \"Resuelto\""
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4567/incidente/abiertos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37af31f3-54e3-4c80-b3c9-97009cdc1306",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Existe usuario valido\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+									"});",
+									"",
+									"pm.test(\"Successful GET/POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);",
+									"});",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Failed POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,511]);",
+									"});",
+									"pm.test(\"Error de request por parte del cliente\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,452]);",
+									"});",
+									"pm.test(\"Error en el servidor\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,511]);",
+									"});",
+									"pm.test(\"Atención ! Redirección\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([300,308]);",
+									"});",
+									"",
+									"pm.test(\"Contiene el usuario 'Federico' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Federico\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Juan' \", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Juan\");",
+									"});",
+									"pm.test(\"Contiene el usuario 'Martín'\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Martín\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4567/incidente/abiertos",
+							"host": [
+								"localhost"
+							],
+							"port": "4567",
+							"path": [
+								"incidente",
+								"abiertos"
+							]
+						},
+						"description": "Retorna los incidentes en estado \"Asignado\""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

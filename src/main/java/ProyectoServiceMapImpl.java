@@ -30,7 +30,7 @@ public class ProyectoServiceMapImpl implements ProyectoService {
     }
 
     @Override
-    public ArrayList<Incidente> getIncidentesProyecto(int idProyecto) {
+    public Collection<Incidente> getIncidentesProyecto(int idProyecto) {
 
         return proyectoMap.get(idProyecto).getIncidentes()!=null ? proyectoMap.get(idProyecto).getIncidentes() : new ArrayList<Incidente>();
 
@@ -48,7 +48,7 @@ public class ProyectoServiceMapImpl implements ProyectoService {
     }
 
     @Override
-    public ArrayList<Incidente> getIncidentesUsuarioResponsable(int idUsuario) {
+    public Collection<Incidente> getIncidentesUsuarioResponsable(int idUsuario) {
 
         ArrayList<Incidente> incidentesUsuarioResponsable = new ArrayList<Incidente>();
         Collection<Proyecto> proyectos = proyectoMap.values();
@@ -67,7 +67,7 @@ public class ProyectoServiceMapImpl implements ProyectoService {
     }
 
     @Override
-    public ArrayList<Incidente> getIncidentesAbiertos() {
+    public Collection<Incidente> getIncidentesAbiertos() {
 
         ArrayList<Incidente> incidentesAbiertos = new ArrayList<Incidente>();
         Collection<Proyecto> proyectos = proyectoMap.values();
@@ -86,7 +86,7 @@ public class ProyectoServiceMapImpl implements ProyectoService {
     }
 
     @Override
-    public ArrayList<Incidente> getIncidentesCerrados() {
+    public Collection<Incidente> getIncidentesCerrados() {
 
         ArrayList<Incidente> incidentesCerrados = new ArrayList<Incidente>();
         Collection<Proyecto> proyectos = proyectoMap.values();
@@ -105,7 +105,7 @@ public class ProyectoServiceMapImpl implements ProyectoService {
     }
 
     @Override
-    public ArrayList<Incidente> getIncidentesUsuarioReportador(int idUsuario) {
+    public Collection<Incidente> getIncidentesUsuarioReportador(int idUsuario) {
 
         ArrayList<Incidente> incidentesUsuarioReportador= new ArrayList<Incidente>();
         Collection<Proyecto> proyectos = proyectoMap.values();
@@ -142,7 +142,7 @@ public class ProyectoServiceMapImpl implements ProyectoService {
         return proyectoMap.values();
     }
 
-    public ArrayList<Proyecto> getProyectosUsuario(int idUsuario){
+    public Collection<Proyecto> getProyectosUsuario(int idUsuario){
 
         ArrayList<Proyecto> proyectosUsuario = new ArrayList<>();
 
